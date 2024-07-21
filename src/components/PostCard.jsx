@@ -6,9 +6,7 @@ import { useSelector } from "react-redux";
 
 function PostCard({ $id, Title, Image, $updatedAt, ...post }) {
   const userData = useSelector((state) => state.auth.userData);
-  console.log("current user id ", userData);
-  console.log("PostCard Id  -", post);
-  console.log("PostCard  status -", post.Status);
+  
 
   const date = new Date($updatedAt);
   // Format to "dd/MM/yyyy HH:mm:ss"
