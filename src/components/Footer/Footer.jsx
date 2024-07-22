@@ -29,7 +29,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className=" flex  xl:justify-between w-3/5 mx-auto lg:ml-0 lg:mr-auto xl:ml-auto xl:mr-0 flex-col  lg:flex-row ">
+        <div className=" flex  xl:justify-between w-3/5 mx-auto md:ml-0 lg:mr-auto xl:ml-auto xl:mr-0 flex-col  md:flex-row ">
           <div className="mb-8 lg:mb-0">
             <h1 className="text-lg font-bold text-white  mb-4">Company</h1>
             <span className="absolute bg-[rgb(217,24,130)] w-1/2 md:w-[20rem] h-1 rounded"></span>
