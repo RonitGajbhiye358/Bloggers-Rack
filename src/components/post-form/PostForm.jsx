@@ -50,6 +50,7 @@ export default function PostForm({ post }) {
 
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);
+          navigate(0);
         }
       }
     }
