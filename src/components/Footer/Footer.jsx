@@ -6,8 +6,8 @@ function Footer() {
   return (
     <footer className=" w-100vw relative bg-[rgb(11,20,47)] bg-opacity-85 backdrop-filter backdrop-blur-lg h-1/4  ">
 
-      <div className="py-20 px-2 w-5/6 m-auto text-[rgb(117,117,117)] flex justify-between  gap-5 flex-col 2xl:flex-row">
-        <div className="footer1 relative">
+      <div className="py-20 px-2 w-5/6 m-auto text-[rgb(117,117,117)] flex justify-between  gap-5 flex-col xl:flex-row">
+        <div className="footer1 relative flex flex-col items-center">
           <Logo />
           <ul>
             <li className="flex justify-start items-center gap-2 m-3">
@@ -29,10 +29,10 @@ function Footer() {
           </ul>
         </div>
 
-        <div className=" flex  xl:justify-between  w-3/5 flex-col  lg:flex-row">
-          <div>
-            <h1 className="text-lg font-bold text-white mb-4">Company</h1>
-            <span className="absolute bg-[rgb(217,24,130)] w-[20rem] h-1 rounded"></span>
+        <div className=" flex  xl:justify-between w-3/5 mx-auto lg:ml-0 lg:mr-auto xl:ml-auto xl:mr-0 flex-col  lg:flex-row ">
+          <div className="mb-8 lg:mb-0">
+            <h1 className="text-lg font-bold text-white  mb-4">Company</h1>
+            <span className="absolute bg-[rgb(217,24,130)] w-1/2 md:w-[20rem] h-1 rounded"></span>
             <div className="flex flex-wrap justify-between mt-12 w-72 flex-col min-[500px]:flex-row min-[500px]:w-[28rem]">
               <a href="/#" className=" cursor-pointer w-1/2 py-3 text-base medium:text-base  hover:text-white leading-[21px] medium:leading-6 font-semibold text-gray-300">
                 About us
@@ -54,9 +54,9 @@ function Footer() {
               </a>
             </div>
           </div>
-          <div>
+          <div >
             <h1 className="text-lg font-bold text-white mb-4">Products</h1>
-            <span className="absolute bg-[rgb(217,24,130)] w-[20rem] h-1 rounded"></span>
+            <span className="absolute bg-[rgb(217,24,130)] w-1/2 md:w-[20rem] h-1 rounded"></span>
             <div className="flex flex-wrap justify-between mt-12 w-72 flex-col min-[500px]:flex-row min-[500px]:w-[28rem]">
               <a href="/#" className=" cursor-pointer w-1/2 py-3 text-base medium:text-base hover:text-white  leading-[21px] medium:leading-6 font-semibold text-gray-300">
                 Pw Skills Lab
