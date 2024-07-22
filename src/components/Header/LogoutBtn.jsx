@@ -26,7 +26,7 @@ function LogoutBtn() {
           alt="Logout"
           className="invert w-7 h-7 group-hover:invert-0"
         />
-        <div className="collapse md:visible w-0 md:w-auto">Sign Out</div>
+        <div className="collapse md:visible w-0 md:w-auto group-hover:invert-0">Sign Out</div>
       </button>
     </div>
   );
