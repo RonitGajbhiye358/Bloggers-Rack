@@ -27,9 +27,9 @@ function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-transparent">
+    <div className="flex items-center justify-center bg-transparent my-0 md:my-28">
       <div
-        className={`mx-auto w-full max-w-lg bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg border  rounded-xl p-10 border-black/10`}
+        className={`mx-auto w-auto md:w-full max-w-lg bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg border  rounded-xl p-10 border-black/10`}
       >
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
@@ -81,7 +81,7 @@ function Signup() {
               })}
             />
           </div>
-          <Button Linkto="/signup" type="submit" className="w-full mt-10">
+          <Button type="submit" className="w-full mt-10">
             Create Account
           </Button>
         </form>

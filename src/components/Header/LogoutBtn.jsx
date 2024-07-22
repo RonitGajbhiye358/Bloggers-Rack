@@ -15,15 +15,20 @@ function LogoutBtn() {
     });
   };
   return (
-      <div className="group flex justify-center items-center bg-gradient-to-l from-blue-500 via-purple-500 to-pink-500 animate-gradient-x  cursor-pointer  my-1  rounded-xl pl-4">
-        <img src="Logout.png" alt="Logout" className="invert w-7 h-7 group-hover:invert-0" />
-        <button
-          onClick={logoutHandler}
-          className="  w-32 font-semibold  text-white rounded-md text-lg h-11  text-center group-hover:text-black "
-        >
-          Logout
-        </button>
-      </div>
+    <div className=" bg-gradient-to-l from-blue-500 via-purple-500 to-pink-500 animate-gradient-x cursor-pointer md:ml-8 rounded-xl ">
+      <button
+        onClick={logoutHandler}
+        title="Sign Out"
+        className=" group flex justify-center items-center font-semibold gap-0 md:gap-4 p-3 md:px-4 md:py-2 text-white rounded-md text-lg h-11  text-center group-hover:text-black "
+      >
+        <img
+          src="Logout.png"
+          alt="Logout"
+          className="invert w-7 h-7 group-hover:invert-0"
+        />
+        <div className="collapse md:visible w-0 md:w-auto">Sign Out</div>
+      </button>
+    </div>
   );
 }
 

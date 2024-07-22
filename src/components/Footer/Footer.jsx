@@ -32,7 +32,7 @@ function Footer() {
         <div className=" flex  xl:justify-between  w-3/5 flex-col  lg:flex-row">
           <div>
             <h1 className="text-lg font-bold text-white mb-4">Company</h1>
-            <span className="absolute bg-orange-500 w-[20rem] h-1 rounded"></span>
+            <span className="absolute bg-[rgb(217,24,130)] w-[20rem] h-1 rounded"></span>
             <div className="flex flex-wrap justify-between mt-12 w-72 flex-col min-[500px]:flex-row min-[500px]:w-[28rem]">
               <a href="/#" className=" cursor-pointer w-1/2 py-3 text-base medium:text-base  hover:text-white leading-[21px] medium:leading-6 font-semibold text-gray-300">
                 About us
@@ -56,7 +56,7 @@ function Footer() {
           </div>
           <div>
             <h1 className="text-lg font-bold text-white mb-4">Products</h1>
-            <span className="absolute bg-orange-500 w-[20rem] h-1 rounded"></span>
+            <span className="absolute bg-[rgb(217,24,130)] w-[20rem] h-1 rounded"></span>
             <div className="flex flex-wrap justify-between mt-12 w-72 flex-col min-[500px]:flex-row min-[500px]:w-[28rem]">
               <a href="/#" className=" cursor-pointer w-1/2 py-3 text-base medium:text-base hover:text-white  leading-[21px] medium:leading-6 font-semibold text-gray-300">
                 Pw Skills Lab

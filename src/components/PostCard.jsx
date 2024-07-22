@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 
 function PostCard({ $id, Title, Image, $updatedAt, ...post }) {
   const userData = useSelector((state) => state.auth.userData);
-  
+  const handleClick = (e) => {
+    alert('You cannot access the Private Content of other users!');
+  };  
 
   const date = new Date($updatedAt);
   // Format to "dd/MM/yyyy HH:mm:ss"
@@ -16,6 +18,7 @@ function PostCard({ $id, Title, Image, $updatedAt, ...post }) {
     return (
       <Link
         to={`/`}
+        onClick={handleClick}
         className="block rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200 hover:scale-105"
       >
         <div className="relative">
@@ -46,13 +49,13 @@ function PostCard({ $id, Title, Image, $updatedAt, ...post }) {
           src={appwriteService.getFilePreview(Image)}
           loading="lazy"
           alt={Title}
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-contain"
         />
       </div>
       <div className="p-6 text-center">
         <p className="text-gray-950 text-sm group-hover:text-md">Updated on {formattedDateTime}</p>
         <h2 className="text-xl font-bold mt-2 mb-4 group-hover:text-2xl">{Title}</h2>
-        <p className=" text-gray-950  group-hover:text-lg">
+        <p className=" text-gray-950   group-hover:text-red-950">
           Read More...
         </p>
       </div>

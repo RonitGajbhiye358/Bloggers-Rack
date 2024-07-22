@@ -6,7 +6,7 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x space-y-8">
       <div className="text-center text-gray-900 space-y-8">
-        <h1 className="text-4xl md:text-6xl font-bold animate-fade-in-down mt-28">
+        <h1 className="text-4xl md:text-6xl font-bold animate-fade-in-down mt-10 sm:mt-28">
           Welcome to Our Website...
         </h1>
         <p className="text-lg md:text-2xl animate-fade-in-up">
@@ -26,7 +26,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center space-x-6 mt-10 animate-fade-in-up">
+      <div className="flex flex-wrap justify-center gap-4 mt-10 animate-fade-in-up">
         <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
           <FaRocket className="text-4xl text-blue-500 mb-4 mx-auto" />
           <h3 className="text-xl font-semibold">Fast Performance</h3>
@@ -52,7 +52,7 @@ const LandingPage = () => {
 
       <div className="space-y-8 text-gray-900 text-center animate-fade-in-up ">
         <h2 className="text-3xl md:text-5xl font-bold">Our Features</h2>
-        <div className="flex flex-wrap justify-center space-x-6 ">
+        <div className="flex flex-wrap justify-center gap-6 ">
           <div className="max-w-xs">
             <img
               src="featureimg2.jpg"

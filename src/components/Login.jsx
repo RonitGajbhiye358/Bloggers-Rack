@@ -28,9 +28,9 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full py-8">
+    <div className="flex items-center w-full justify-center  py-8 my-0 md:my-28">
       <div
-        className={`mx-auto w-full max-w-lg  bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg rounded-xl p-10 border border-black/10`}
+        className={`mx-auto w-auto md:w-full  max-w-lg  bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg rounded-xl p-10 border border-black/10`}
       >
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
@@ -51,7 +51,7 @@ function Login() {
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className="mt-8">
-          <div className="space-y-5">
+          <div className="space-y-5 w-full">
             <Input
               label="Email: "
               placeholder="Enter your email"
@@ -74,7 +74,7 @@ function Login() {
               })}
             />
           </div>
-          <Button Linkto="/login" type="submit" className="w-full mt-10">
+          <Button type="submit" className="w-full mt-10">
             Sign in
           </Button>
         </form>
