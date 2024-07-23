@@ -22,7 +22,7 @@ function LogoutBtn() {
         className=" group flex justify-center items-center font-semibold gap-0 md:gap-4 p-3 md:px-4 md:py-2 text-white rounded-md text-lg h-11  text-center group-hover:text-black "
       >
         <img
-          src="Logout.png"
+          src="/Logout.png"
           alt="Logout"
           className="invert w-7 h-7 group-hover:invert-0"
         />

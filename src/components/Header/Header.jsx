@@ -56,7 +56,7 @@ function Header() {
                     title={`${item.name}`}
                     className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-white text-lg 
                       `}
-                  ><img src={`${item.name}.png`} alt={item.name}  className="w-7 h-7 invert "/>
+                  ><img src={`/${item.name}.png`} alt={item.name}  className="w-7 h-7 invert "/>
                     <div className="collapse md:visible w-0 md:w-auto text-[0px] md:text-lg ">{item.name}</div>
                   </button>
                 </li>
