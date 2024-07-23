@@ -23,7 +23,7 @@ function PostCard({ $id, Title, Image, $updatedAt, ...post }) {
       >
         <div className="relative">
           <img
-            src="public/privatePost.png"
+            src="privatePost.png"
             loading="lazy"
             alt={Title}
             className="w-full h-64 object-cover rounded-lg "
