@@ -10,7 +10,7 @@ function Footer() {
           <Logo />
           <ul>
             <li className="flex justify-start items-center gap-2 m-3">
-              <img className="w-5 h-5" src="msg.svg" alt="msg" />
+              <img className="w-5 h-5" src="public/msg.svg" alt="msg" />
               <a
                 className="hover:text-gray-100"
                 href="mailto:support@pwskills.com"
@@ -21,7 +21,7 @@ function Footer() {
               </a>
             </li>
             <li className="flex justify-start items-center gap-2 m-3">
-              <img className="w-5 h-5" src="call.svg" alt="call" />
+              <img className="w-5 h-5" src="public/call.svg" alt="call" />
               <a className="hover:text-gray-100" href="tel:+919422115745">
                 <p className="text-base medium:text-base leading-[21px] medium:leading-6 hover:text-white  font-semibold text-gray-300">
                   +91-9422115745
