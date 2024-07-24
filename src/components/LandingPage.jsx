@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaRocket, FaSmile, FaCog } from "react-icons/fa";
-
+import BlurFade from "./UI/BlueFade";
 const LandingPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x space-y-8">
@@ -26,6 +26,7 @@ const LandingPage = () => {
         </div>
       </div>
 
+      <BlurFade delay={0.25} inView>
       <div className="flex flex-wrap justify-center gap-4 mt-10 animate-fade-in-up">
         <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
           <FaRocket className="text-4xl text-blue-500 mb-4 mx-auto" />
@@ -49,7 +50,9 @@ const LandingPage = () => {
           </p>
         </div>
       </div>
-
+      </BlurFade>
+      
+      <BlurFade delay={0.25} inView>
       <div className="space-y-8 text-gray-900 text-center animate-fade-in-up ">
         <h2 className="text-3xl md:text-5xl font-bold">Our Features</h2>
         <div className="flex flex-wrap justify-center gap-6 ">
@@ -73,7 +76,9 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      </BlurFade>
 
+      <BlurFade delay={0.25} inView>
       <section className="py-12 bg-tranparant sm:py-16 lg:py-20">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="text-center">
@@ -373,6 +378,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      </BlurFade>
     </div>
   );
 };

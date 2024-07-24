@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, PostCard } from "../components";
 import appwriteService from "../appwrite/config";
+import BlurFade from "../components/UI/BlueFade";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
@@ -16,8 +17,10 @@ function AllPosts() {
       <Container>
         <div className="flex flex-wrap">
           {posts.map((post) => (
-            <div key={post.$id} className="p-2 w-full  md:w-1/2 m-auto">
-              <PostCard {...post} />
+            <div className="p-2 w-full  md:w-1/2 m-auto">
+              <BlurFade key={post.$id} delay={0.25} inView>
+                <PostCard {...post} />
+              </BlurFade>
             </div>
           ))}
         </div>
