@@ -2,384 +2,280 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaRocket, FaSmile, FaCog } from "react-icons/fa";
 import BlurFade from "./UI/BlueFade";
-const LandingPage = () => {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x space-y-8">
-      <div className="text-center text-gray-900 space-y-8">
-        <h1 className="text-4xl md:text-6xl font-bold animate-fade-in-down mt-10 sm:mt-28">
-          Welcome to Our Website...
-        </h1>
-        <p className="text-lg md:text-2xl animate-fade-in-up">
-          We create amazing experiences for our users
-        </p>
+import { useState, useEffect } from "react";
 
-        <div className="relative inline-flex items-center justify-center group">
-          <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-md group-hover:shadow-cyan-500/50"></div>
+const LandingPage = () => {
+  const [activeSlide, setActiveSlide] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prevSlide) => (prevSlide === 1 ? 2 : 1));
+    }, 6000);
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
+
+  return (
+    <section className="relative">
+      <section1 className=" pointer-events-none relative h-screen list-item overflow-hidden ">
+        <h1 className=" typing_animation text-3xl md:text-6xl mt-10 pb-4">
+          Craft Your Digital Presence
+        </h1>
+        <h2 className="text-white text-xl md:text-3xl pb-4">
+          Create a unique and beautiful blog easily.
+        </h2>
+        <div>
           <Link
             to="/login"
             title=""
-            className="relative inline-flex items-center justify-center w-full px-12 py-4 text-lg font-mono text-white bg-black border border-transparent rounded-full animate-pulse"
+            className="relative inline-flex items-center justify-center w-auto px-12 py-4 my-2 text-base md:text-lg font-mono text-white bg-black border border-transparent rounded-full animate-pulse"
             role="button"
           >
-            Log In
+            Create Your Blog
           </Link>
         </div>
-      </div>
-
-      <BlurFade delay={0.25} inView>
-      <div className="flex flex-wrap justify-center gap-4 mt-10 animate-fade-in-up">
-        <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
-          <FaRocket className="text-4xl text-blue-500 mb-4 mx-auto" />
-          <h3 className="text-xl font-semibold">Fast Performance</h3>
-          <p className="text-md">
-            Experience lightning-fast speeds with our optimized platform.
-          </p>
-        </div>
-        <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
-          <FaSmile className="text-4xl text-yellow-500  mb-4 mx-auto" />
-          <h3 className="text-xl font-semibold">User Friendly</h3>
-          <p className="text-md">
-            Enjoy a seamless and intuitive user interface.
-          </p>
-        </div>
-        <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
-          <FaCog className="text-4xl text-green-500  mb-4 mx-auto" />
-          <h3 className="text-xl font-semibold">Highly Customizable</h3>
-          <p className="text-md">
-            Tailor our platform to meet your specific needs.
-          </p>
-        </div>
-      </div>
-      </BlurFade>
-      
-      <BlurFade delay={0.25} inView>
-      <div className="space-y-8 text-gray-900 text-center animate-fade-in-up ">
-        <h2 className="text-3xl md:text-5xl font-bold">Our Features</h2>
-        <div className="flex flex-wrap justify-center gap-6 ">
-          <div className="max-w-xs">
+        <div
+          className={`transition-opacity duration-6000 ease-in-out ${
+            activeSlide === 1 ? "opacity-100" : "opacity-0"
+          } inset-0`}
+        >
+          <div className={`parallax1`}>
             <img
-              src="featureimg2.jpg"
-              alt="Feature 1"
-              className="rounded-lg shadow-lg mb-4"
-            />
-            <h3 className="text-xl font-semibold">Ease of Use...</h3>
-          </div>
-          <div className="max-w-xs">
+              src="/AM5.1.png"
+              className="w-80 left-[-60px] animate-moveUp"
+              id="AM5.1"
+            ></img>
             <img
-              src="featureimg1.avif"
-              alt="Feature 2"
-              className="rounded-lg shadow-lg mb-4"
+              src="/AM5.2.png"
+              className="w-40 bottom-[-50px] left-4 animate-moveUp"
+              id="AM5.2"
+            ></img>
+            <img
+              src="/AM5.3.png"
+              className="w-40 bottom-[-58px] left-48 animate-moveUp"
+              id="AM5.3"
+            ></img>
+            <img
+              src="/AM5.4.png"
+              className="w-60 right-[-50px] animate-moveUp"
+              id="AM5.4"
+            ></img>
+            <img
+              src="/AM5.5.png"
+              className="w-40 right-20 bottom-48 animate-moveUp"
+              id="AM5.5"
+            ></img>
+            <img
+              src="/AM5.6.png"
+              className="w-0 md:w-56 right-12 bottom-[-58px] animate-moveUp"
+              id="AM5.6"
+            ></img>
+            <img
+              src="/AM5.main.png"
+              className="bottom-0 w-0 md:w-1/2 left-[26%] animate-moveUp "
+              id="AM5.main"
+            ></img>
+          </div>
+        </div>
+
+        <div
+          className={`transition-opacity duration-6000 ease-in-out ${
+            activeSlide === 2 ? "opacity-100" : "opacity-0"
+          }  inset-0`}
+        >
+          <div className="parallax1">
+            <img
+              src="/AM1.1.png"
+              className="w-80 right-[-60px] animate-moveUp"
+              id="AM5.1"
+            ></img>
+            <img
+              src="/AM1.2.png"
+              className="w-48 bottom-72 left-[-30px] animate-moveUp"
+              id="AM5.2"
+            ></img>
+            <img
+              src="/AM1.3.png"
+              className="w-36 bottom-40 left-[-20px] animate-moveUp "
+              id="AM5.3"
+            ></img>
+            <img
+              src="/AM1.7.png"
+              className="w-32 bottom-44 right-32  animate-moveUp"
+              id="AM5.7"
+            ></img>
+            <img
+              src="/AM1.4.png"
+              className="w-56 md:w-72 left-[-40px] bottom-[-80px] animate-moveUp"
+              id="AM5.4"
+            ></img>
+            <img
+              src="/AM1.5.png"
+              className="w-20 left-48 bottom-72 animate-moveUp"
+              id="AM5.5"
+            ></img>
+            <img
+              src="/AM1.6.png"
+              className="w-56 md:w-72 right-[-30px] bottom-[-100px] animate-moveUp"
+              id="AM5.6"
+            ></img>
+            <img
+              src="/AM1.main.png"
+              className="bottom-0 w-0 md:w-1/2 left-[26%] animate-moveUp "
+              id="AM5.main"
+            ></img>
+          </div>
+        </div>
+      </section1>
+
+      <div className="h-40% bg-blue-500 z-0 flex flex-col md:flex-row items-center justify-evenly text-white box-shadow-md overflow-clip py-10 md:py-0">
+        <div>
+          <h1 className="text-5xl font-bold mb-4">
+            {" "}
+            Choose the perfect design
+          </h1>
+          <h2 className="text-xl font-light mb-6 max-w-xl">
+            Create a beautiful blog that fits your style. Choose from a
+            selection of easy-to-use templates – all with flexible layouts and
+            hundreds of background images – or design something new.
+          </h2>
+        </div>
+        <BlurFade delay={0.25} inView>
+          <div className="relative w-[600px] h-[600px]">
+            <img
+              src="/AM2.1.png"
+              className=" w-96 absolute top-10 left-0 z-2  md:animate-slideInFromRight"
+              alt="paint"
             />
-            <h3 className="text-xl font-semibold">
-              Support from Real People...
-            </h3>
+            <img
+              src="/AM2.2.png"
+              className="w-auto absolute bottom-24 left-20 z-3 md:animate-slideInFromRight"
+              alt="paint"
+            />
+            <img
+              src="/AM2.3.png"
+              className="w-auto absolute bottom-10 left-40 z-4 md:animate-slideInFromRight"
+              alt="paint"
+            />
           </div>
-        </div>
+        </BlurFade>
       </div>
-      </BlurFade>
 
-      <BlurFade delay={0.25} inView>
-      <section className="py-12 bg-tranparant sm:py-16 lg:py-20">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl ">
-              Make every step user-centric
-            </h2>
-            <p className="mt-4 text-base leading-7 text-gray-900 sm:mt-8 ">
-              Lorem ipsum dolor sit amet, consectetur adipis elit
-            </p>
+      <BlurFade delay={0.15} inView>
+      <section className="pt-24 pb-96 bg-[rgb(57,140,128)] list-item relative">
+        <h1 className=" typing_animation text-3xl md:text-6xl mt-10 pb-4">
+        Craft Your Perfect Family Adventure
+        </h1>
+        <h2 className="text-white text-xl md:text-3xl pb-4">
+        Create lasting memories with fun and ease.
+        </h2>
+        
+        
+          <div className="parallax1 ">
+            <img
+              src="/AM4.1.png"
+              className="w-72 right-[-60px] bottom-48 "
+              id="AM4.1"
+            ></img>
+            <img
+              src="/AM4.2.png"
+              className="w-48 bottom-56 left-[-30px] "
+              id="AM4.2"
+            ></img>
+            <img
+              src="/AM4.3.png"
+              className="w-36 bottom-14 left-56  "
+              id="AM5.3"
+            ></img>
+            <img
+              src="/AM4.7.png"
+              className="w-32 bottom-44 right-48 "
+              id="AM4.7"
+            ></img>
+            <img
+              src="/AM4.4.png"
+              className="w-52 md:w-72 left-[-40px] bottom-[-40px] "
+              id="AM5.4"
+            ></img>
+            <img
+              src="/AM4.5.png"
+              className="w-36 left-48 bottom-72 "
+              id="AM5.5"
+            ></img>
+            <img
+              src="/AM4.6.png"
+              className="w-32 right-60 bottom-14 "
+              id="AM5.6"
+            ></img>
+            <img
+              src="/AM4.8.png"
+              className="w-52 md:w-64 right-[-50px] bottom-[-80px] "
+              id="AM5.6"
+            ></img>
+            <img
+              src="/AM4.main.png"
+              className="bottom-0 w-0 md:w-1/2 left-[26%] "
+              id="AM5.main"
+            ></img>
           </div>
-
-          <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
-            <div className="md:p-8 lg:p-14">
-              <svg
-                className="mx-auto"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M45 29V23C45 10.85 35.15 1 23 1C10.85 1 1 10.85 1 23V29"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M13 29H1V41C1 43.209 2.791 45 5 45H13V29Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M45 29H33V45H41C43.209 45 45 43.209 45 41V29Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3 className="mt-12 text-xl font-bold text-gray-900 ">
-                Support
-              </h3>
-              <p className="mt-5 text-base text-gray-900 ">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim
-                nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.
-              </p>
-            </div>
-
-            <div className="md:p-8 lg:p-14 md:border-l md:border-gray-950">
-              <svg
-                className="mx-auto"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M27 27H19V45H27V27Z"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 37H1V45H9V37Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M45 17H37V45H45V17Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M5 17L15 7L23 15L37 1"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M28 1H37V10"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3 className="mt-12 text-xl font-bold text-gray-900 ">
-                Sales
-              </h3>
-              <p className="mt-5 text-base text-gray-900 ">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim
-                nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.
-              </p>
-            </div>
-
-            <div className="md:p-8 lg:p-14 md:border-l md:border-gray-950">
-              <svg
-                className="mx-auto"
-                width="42"
-                height="42"
-                viewBox="0 0 42 42"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M41 1H1V41H41V1Z"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18 7H7V20H18V7Z"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18 26H7V35H18V26Z"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M35 7H24V35H35V7Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3 className="mt-12 text-xl font-bold text-gray-900 ">
-                Onboarding
-              </h3>
-              <p className="mt-5 text-base text-gray-900 ">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim
-                nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.
-              </p>
-            </div>
-
-            <div className="md:p-8 lg:p-14 md:border-t md:border-gray-950">
-              <svg
-                className="mx-auto"
-                width="42"
-                height="42"
-                viewBox="0 0 42 42"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.66667 25H6C3.23858 25 1 27.2386 1 30V37C1 39.7614 3.23858 42 6 42H36C38.7614 42 41 39.7614 41 37V30C41 27.2386 38.7614 25 36 25H31.8333C30.2685 25 29 26.2685 29 27.8333C29 29.3981 27.7315 30.6667 26.1667 30.6667H15.3333C13.7685 30.6667 12.5 29.3981 12.5 27.8333C12.5 26.2685 11.2315 25 9.66667 25Z"
-                  fill="black"
-                />
-                <path
-                  d="M9 9H33"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 17H33"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M1 25H13V31H29V25H41"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M37 1H5C2.79086 1 1 2.79086 1 5V37C1 39.2091 2.79086 41 5 41H37C39.2091 41 41 39.2091 41 37V5C41 2.79086 39.2091 1 37 1Z"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3 className="mt-12 text-xl font-bold text-gray-900 ">
-                Product
-              </h3>
-              <p className="mt-5 text-base text-gray-900 ">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim
-                nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.
-              </p>
-            </div>
-
-            <div className="md:p-8 lg:p-14 md:border-l md:border-gray-950 md:border-t">
-              <svg
-                className="mx-auto"
-                width="46"
-                height="42"
-                viewBox="0 0 46 42"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M30.562 18.4609C30.0511 17.9392 29.4292 17.5392 28.7426 17.2907C28.0559 17.0422 27.3221 16.9516 26.5956 17.0256C25.8692 17.0996 25.1687 17.3362 24.5462 17.718C23.9237 18.0998 23.3952 18.6169 23 19.2309C22.6049 18.6167 22.0764 18.0995 21.4539 17.7176C20.8315 17.3357 20.1309 17.099 19.4044 17.025C18.6779 16.951 17.944 17.0417 17.2573 17.2903C16.5706 17.5389 15.9488 17.939 15.438 18.4609C14.5163 19.4035 14.0002 20.6695 14.0002 21.9879C14.0002 23.3063 14.5163 24.5722 15.438 25.5149L23 33.1999L30.564 25.5159C31.485 24.5726 32.0004 23.3064 32 21.988C31.9997 20.6696 31.4835 19.4037 30.562 18.4609Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M41 41H5C3.93913 41 2.92172 40.5786 2.17157 39.8284C1.42143 39.0783 1 38.0609 1 37V1H17L22 9H45V37C45 38.0609 44.5786 39.0783 43.8284 39.8284C43.0783 40.5786 42.0609 41 41 41Z"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3 className="mt-12 text-xl font-bold text-gray-900 ">
-                Quality
-              </h3>
-              <p className="mt-5 text-base text-gray-900 ">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim
-                nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.
-              </p>
-            </div>
-
-            <div className="md:p-8 lg:p-14 md:border-l md:border-gray-950 md:border-t">
-              <svg
-                className="mx-auto"
-                width="44"
-                height="44"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M25 7C34.941 7 43 15.059 43 25C43 34.941 34.941 43 25 43C15.059 43 7 34.941 7 25"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M19 1C9.059 1 1 9.059 1 19H19V1Z"
-                  fill="black"
-                  stroke="#161616"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3 className="mt-12 text-xl font-bold text-gray-900 ">
-                Result
-              </h3>
-              <p className="mt-5 text-base text-gray-900 ">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim
-                nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
       </BlurFade>
-    </div>
+
+      <BlurFade delay={0.25} inView>
+        <div className="flex flex-wrap justify-center gap-10 animate-fade-in-up my-24">
+          <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+            <FaRocket className="text-4xl text-blue-500 mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold">Fast Performance</h3>
+            <p className="text-md">
+              Experience lightning-fast speeds with our optimized platform.
+            </p>
+          </div>
+          <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+            <FaSmile className="text-4xl text-yellow-500  mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold">User Friendly</h3>
+            <p className="text-md">
+              Enjoy a seamless and intuitive user interface.
+            </p>
+          </div>
+          <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+            <FaCog className="text-4xl text-green-500  mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold">Highly Customizable</h3>
+            <p className="text-md">
+              Tailor our platform to meet your specific needs.
+            </p>
+          </div>
+        </div>
+      </BlurFade>
+
+      <div className="h-[50%] relative flex flex-col justify-center items-center py-10 md:pt-0">
+        <img
+          src="/map.png"
+          className="w-full h-full object-cover"
+          alt="background"
+        />
+
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center text-white px-4">
+          <h1 className="text-xl md:text-5xl font-bold mb-4">
+            Join millions of others
+          </h1>
+          <h2 className="text-base md:text-xl font-light mb-2 md:mb-6 max-w-md md:max-w-xl">
+            Whether sharing your expertise, breaking news, or whatever’s on your
+            mind, you’re in good company on Blogger. Sign up to discover why
+            millions of people have published their passions here.
+          </h2>
+          <div>
+            <Link
+              to="/login"
+              title=""
+              className="relative inline-flex items-center justify-center w-auto px-12 py-4 my-2 text-base md:text-lg font-mono text-white bg-black border border-transparent rounded-full animate-pulse"
+              role="button"
+            >
+              Create Your Blog
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

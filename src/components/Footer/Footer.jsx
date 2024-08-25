@@ -4,7 +4,7 @@ import Logo from "../Logo";
 
 function Footer() {
   return (
-    <footer className=" w-100vw relative bg-[rgb(11,20,47)] bg-opacity-85 backdrop-filter backdrop-blur-lg h-1/4  ">
+    <footer className=" w-100vw relative bottom-0 bg-[rgb(11,20,47)] bg-opacity-85 backdrop-filter backdrop-blur-lg h-1/4  ">
       <div className="py-20 px-2 w-5/6 m-auto text-[rgb(117,117,117)] flex justify-between  gap-5 flex-col xl:flex-row">
         <div className="footer1 relative flex flex-col items-center">
           <Logo />
@@ -118,8 +118,8 @@ function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-base text-gray-400 p-4">
-        &copy; Copyright 2023 Bloggers Rack.
+      <p className="text-base text-gray-400 p-4 pt-0">
+        &copy; Copyright 2024 Bloggers Rack.
       </p>
     </footer>
   );

@@ -26,7 +26,7 @@ function PostCard({ $id, Title, Image, $updatedAt, ...post }) {
             src="privatePost.png"
             loading="lazy"
             alt={Title}
-            className="w-full h-64 object-contain rounded-lg "
+            className="w-full h-64 rounded-lg "
           />
         </div>
         <div className="p-6 text-center">

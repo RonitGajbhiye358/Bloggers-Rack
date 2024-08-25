@@ -1,22 +1,58 @@
 /* scrollbar.css */
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #272626;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  cursor: pointer;
+}
+.parallax1 img {
+  position: absolute;
+  pointer-events: none;
+}
+
+.typing_animation {
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid transparent;
+  animation: typing 4s steps(30, end);
+  animation-delay: 0s;
+
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+/* @keyframes moveUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
   }
-  
-  ::-webkit-scrollbar-track {
-    background: #272626;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 3px;
-    border: 3px solid #f1f1f1;
-    
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    cursor: pointer;
-  }
-  
+}
+
+.parallax1 img {
+  animation: moveUp 4s ease-in-out;
+} */
