@@ -34,17 +34,17 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="w-100vw overflow-clip overflow-y-scroll bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+    <div className="w-100vw h-full overflow-clip overflow-y-scroll">
       <Header />
-      <main className="mt-36">
-        <Outlet />
+      <main >
+        <Outlet/>
       </main>
       <Footer />
     </div>
   ) : (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-      <div className="text-center text-white">
-        <div className="loader animate-spin rounded-full h-28 w-28 border-t-4 border-b-4 border-white mx-auto"></div>
+    <div className="flex items-center justify-center min-h-screen bg-[url('/background-picture.jpeg')]">
+      <div className="text-center text-black">
+        <div className="loader animate-spin rounded-full h-28 w-28 border-t-4 border-b-4 border-black mx-auto"></div>
         <h2 className="mt-8 text-2xl md:text-4xl font-semibold animate-pulse">
           Loading...
         </h2>

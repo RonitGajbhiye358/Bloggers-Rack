@@ -15,7 +15,7 @@ function LogoutBtn() {
     });
   };
   return (
-    <div className=" bg-gradient-to-l from-blue-500 via-purple-500 to-pink-500 animate-gradient-x cursor-pointer md:ml-8 rounded-xl ">
+    <div className=" bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 cursor-pointer md:ml-8 rounded-xl ">
       <button
         onClick={logoutHandler}
         title="Sign Out"

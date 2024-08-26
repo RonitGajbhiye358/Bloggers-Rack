@@ -28,7 +28,7 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center w-full justify-center  py-8 my-0">
+    <div className="flex items-center w-full h-screen justify-center pt-8 bg-[url('/background-picture.jpeg')]">
       <div
         className={`mx-auto w-auto md:w-full  max-w-lg  bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg rounded-xl p-10 border border-black/10`}
       >

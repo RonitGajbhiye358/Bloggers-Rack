@@ -3,7 +3,7 @@ import { Container, PostForm } from '../components'
 
 function AddPost() {
   return (
-    <div className='py-8'>
+    <div className="pt-36 pb-8 bg-[url('/background-picture.jpeg')]">
         <Container>
             <PostForm />
         </Container>

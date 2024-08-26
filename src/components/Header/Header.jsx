@@ -58,8 +58,8 @@ function Header() {
 
   return (
     <header
-      className={`w-full py-2 bg-[rgb(11,20,47)] bg-opacity-85 fixed top-0 z-30 duration-500 ease-in-out ${
-        isScrolled ? "bg-rgb(40,29,69) bg-opacity-80" : "bg-transparent"
+      className={`w-full py-2 bg-[rgb(11,20,47)] bg-opacity-85 fixed top-0 z-30 duration-100 ease-out ${
+        isScrolled ? "bg-rgb(40,29,69) bg-opacity-80 text-white " : "bg-transparent text-black"
       }`}
     >
       <Container>
@@ -74,10 +74,10 @@ function Header() {
               item.active ? (
                 <li
                   key={item.name}
-                  className={` hover:bg-white hover:bg-opacity-20 cursor-pointer rounded-xl 
+                  className={` hover:text-pink-500 ${isScrolled ? "" : "hover:bg-slate-100"} cursor-pointer rounded-xl 
                 ${
                   location.pathname === item.slug
-                    ? "bg-white bg-opacity-20 "
+                    ? "text-pink-500"
                     : ""
                 }
                 
@@ -86,13 +86,13 @@ function Header() {
                   <button
                     onClick={() => navigate(item.slug)}
                     title={`${item.name}`}
-                    className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-white text-lg 
+                    className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-lg
                       `}
                   >
                     <img
                       src={`/${item.name}.png`}
                       alt={item.name}
-                      className="w-7 h-7 invert "
+                      className={`w-7 h-7 ${isScrolled ? 'invert' : ''}`}
                     />
                     <div className="collapse md:visible w-0 md:w-auto text-[0px] md:text-lg ">
                       {item.name}

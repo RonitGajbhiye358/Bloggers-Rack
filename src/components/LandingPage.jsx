@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 
 const LandingPage = () => {
   const [activeSlide, setActiveSlide] = useState(1);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((prevSlide) => (prevSlide === 1 ? 2 : 1));
@@ -16,12 +15,12 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <section className="relative">
-      <section1 className=" pointer-events-none relative h-screen list-item overflow-hidden ">
-        <h1 className=" typing_animation text-3xl md:text-6xl mt-10 pb-4">
+    <section className="relative text-black">
+      <section1 className=" pointer-events-none pt-44 md:pt-32 relative h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] font-Poppins">
+        <h1 className=" typing_animation font-bold text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
           Craft Your Digital Presence
         </h1>
-        <h2 className="text-white text-xl md:text-3xl pb-4">
+        <h2 className="text-black text-xl md:text-3xl pb-4">
           Create a unique and beautiful blog easily.
         </h2>
         <div>
@@ -128,121 +127,147 @@ const LandingPage = () => {
         </div>
       </section1>
 
-      <div className="h-40% bg-blue-500 z-0 flex flex-col md:flex-row items-center justify-evenly text-white box-shadow-md overflow-clip py-10 md:py-0">
+      <div className="h-40% bg-[linear-gradient(110deg,_#ADABF5_0%,_rgba(255,255,255,0)_99%)] z-0 flex flex-col md:flex-row items-center justify-evenly box-shadow-md overflow-clip pt-10 md:py-0">
         <div>
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-6xl font-bold mb-4">
             {" "}
             Choose the perfect design
           </h1>
-          <h2 className="text-xl font-light mb-6 max-w-xl">
+          <h2 className="text-xl md:text-3xl font-light mb-6 max-w-xl">
             Create a beautiful blog that fits your style. Choose from a
             selection of easy-to-use templates – all with flexible layouts and
             hundreds of background images – or design something new.
           </h2>
         </div>
         <BlurFade delay={0.25} inView>
-          <div className="relative w-[600px] h-[600px]">
-            <img
+          <div className="relative w-[500px] h-[400px] md:w-[600px] md:h-[600px]">
+            <im
               src="/AM2.1.png"
-              className=" w-96 absolute top-10 left-0 z-2  md:animate-slideInFromRight"
+              className={`w-0 md:w-96 absolute top-10 left-0 z-2  `}
               alt="paint"
             />
             <img
               src="/AM2.2.png"
-              className="w-auto absolute bottom-24 left-20 z-3 md:animate-slideInFromRight"
+              className={`w-auto absolute bottom-24 left-20 z-3  `}
               alt="paint"
             />
             <img
               src="/AM2.3.png"
-              className="w-auto absolute bottom-10 left-40 z-4 md:animate-slideInFromRight"
+              className={`"w-auto absolute bottom-10 left-40 z-4 `}
               alt="paint"
             />
           </div>
         </BlurFade>
       </div>
 
+      <div className="h-40% z-0 flex flex-col md:flex-row items-center justify-evenly  box-shadow-md overflow-clip py-10 md:py-0">
+        <BlurFade delay={0.25} inView>
+          <div className="relative w-[300px] md:w-[600px]">
+            <img src="/Content1.png" className={`my-10 md:my-20 rounded-2xl `} />
+          </div>
+        </BlurFade>
+        <div>
+          <h1 className="text-3xl md:text-6xl mb-4 text-black font-bold">
+            {" "}
+            Choose the perfect design
+          </h1>
+          <h2 className="text-xl md:text-3xl font-light mb-6 max-w-xl text-black">
+            Create a beautiful blog that fits your style. Choose from a
+            selection of easy-to-use templates – all with flexible layouts and
+            hundreds of background images – or design something new.
+          </h2>
+        </div>
+      </div>
+
       <BlurFade delay={0.15} inView>
-      <section className="pt-24 pb-96 bg-[rgb(57,140,128)] list-item relative">
-        <h1 className=" typing_animation text-3xl md:text-6xl mt-10 pb-4">
-        Craft Your Perfect Family Adventure
-        </h1>
-        <h2 className="text-white text-xl md:text-3xl pb-4">
-        Create lasting memories with fun and ease.
-        </h2>
-        
-        
+        <section className="pt-10 md:pt-24 pb-96 bg-gradient-to-r from-[#ABF5F1] to-transparent list-item relative">
+          <h1 className=" typing_animation text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
+            Craft Your Perfect Family Adventure
+          </h1>
+          <h2 className=" text-xl md:text-3xl pb-4">
+            Create lasting memories with fun and ease.
+          </h2>
           <div className="parallax1 ">
             <img
               src="/AM4.1.png"
-              className="w-72 right-[-60px] bottom-48 "
+              className="w-44 md:w-72 right-[-60px] bottom-48 animate-moveUpNormal"
               id="AM4.1"
             ></img>
             <img
               src="/AM4.2.png"
-              className="w-48 bottom-56 left-[-30px] "
+              className="w-28 md:w-48 bottom-56 left-[-30px] animate-moveUpNormal"
               id="AM4.2"
             ></img>
             <img
               src="/AM4.3.png"
-              className="w-36 bottom-14 left-56  "
+              className="w-20 md:w-36 bottom-14 left-56 animate-moveUpNormal "
               id="AM5.3"
             ></img>
             <img
               src="/AM4.7.png"
-              className="w-32 bottom-44 right-48 "
+              className="w-16 md:w-32 bottom-44 right-48 animate-moveUpNormal"
               id="AM4.7"
             ></img>
             <img
               src="/AM4.4.png"
-              className="w-52 md:w-72 left-[-40px] bottom-[-40px] "
+              className="w-52 md:w-72 left-[-40px] bottom-[-40px] animate-moveUpNormal"
               id="AM5.4"
             ></img>
             <img
               src="/AM4.5.png"
-              className="w-36 left-48 bottom-72 "
+              className="w-20 md:w-36 left-48 bottom-72 animate-moveUpNormal"
               id="AM5.5"
             ></img>
             <img
               src="/AM4.6.png"
-              className="w-32 right-60 bottom-14 "
+              className="w-16 md:w-32 right-60 bottom-14 animate-moveUpNormal"
               id="AM5.6"
             ></img>
             <img
               src="/AM4.8.png"
-              className="w-52 md:w-64 right-[-50px] bottom-[-80px] "
+              className="w-48 md:w-64 right-[-50px] bottom-[-80px] animate-moveUpNormal"
               id="AM5.6"
             ></img>
             <img
               src="/AM4.main.png"
-              className="bottom-0 w-0 md:w-1/2 left-[26%] "
+              className="bottom-0 w-0 md:w-1/2 left-[26%] animate-moveUpNormal"
               id="AM5.main"
             ></img>
           </div>
-      </section>
+        </section>
       </BlurFade>
 
       <BlurFade delay={0.25} inView>
-        <div className="flex flex-wrap justify-center gap-10 animate-fade-in-up my-24">
-          <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
-            <FaRocket className="text-4xl text-blue-500 mb-4 mx-auto" />
-            <h3 className="text-xl font-semibold">Fast Performance</h3>
-            <p className="text-md">
-              Experience lightning-fast speeds with our optimized platform.
-            </p>
+        <div className="flex flex-wrap justify-center gap-10 animate-fade-in-up my-24 relative">
+          <div className="text-center max-w-sm bg-opacity-20 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform border border-gray-300">
+            <div className="bg-gradient-to-r from-[#3842ff] to-transparent h-1"></div>
+            <div className="p-4">
+              <FaRocket className="text-4xl text-blue-500 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold">Fast Performance</h3>
+              <p className="text-md">
+                Experience lightning-fast speeds with our optimized platform.
+              </p>
+            </div>
           </div>
-          <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
-            <FaSmile className="text-4xl text-yellow-500  mb-4 mx-auto" />
-            <h3 className="text-xl font-semibold">User Friendly</h3>
-            <p className="text-md">
-              Enjoy a seamless and intuitive user interface.
-            </p>
+          <div className="text-center max-w-sm  bg-opacity-20 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform border border-gray-300">
+            <div className="bg-gradient-to-r from-[#fb21ff] to-transparent h-1"></div>
+            <div className="p-4">
+              <FaSmile className="text-4xl text-yellow-500  mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold">User Friendly</h3>
+              <p className="text-md">
+                Enjoy a seamless and intuitive user interface.
+              </p>
+            </div>
           </div>
-          <div className="text-center p-4 max-w-xs bg-white bg-opacity-20 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
-            <FaCog className="text-4xl text-green-500  mb-4 mx-auto" />
-            <h3 className="text-xl font-semibold">Highly Customizable</h3>
-            <p className="text-md">
-              Tailor our platform to meet your specific needs.
-            </p>
+          <div className="text-center max-w-sm bg-opacity-20 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform border border-gray-300">
+            <div className="bg-gradient-to-r from-[#21f0ff] to-transparent h-1"></div>
+            <div className="p-4">
+              <FaCog className="text-4xl text-green-500  mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold">Highly Customizable</h3>
+              <p className="text-md">
+                Tailor our platform to meet your specific needs.
+              </p>
+            </div>
           </div>
         </div>
       </BlurFade>
@@ -254,11 +279,11 @@ const LandingPage = () => {
           alt="background"
         />
 
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center text-white px-4">
-          <h1 className="text-xl md:text-5xl font-bold mb-4">
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center px-4">
+          <h1 className="text-3xl md:text-6xl font-bold mb-4">
             Join millions of others
           </h1>
-          <h2 className="text-base md:text-xl font-light mb-2 md:mb-6 max-w-md md:max-w-xl">
+          <h2 className="text-xl md:text-3xl font-light mb-2 md:mb-6 max-w-md md:max-w-xl">
             Whether sharing your expertise, breaking news, or whatever’s on your
             mind, you’re in good company on Blogger. Sign up to discover why
             millions of people have published their passions here.

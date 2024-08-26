@@ -33,7 +33,7 @@ export default function Post() {
   };
 
   return post ? (
-    <div className="py-8 ">
+    <div className="py-8 pt-40 md:pt-32 bg-[url('/background-picture.jpeg')] ">
       <Container>
         <div className="  bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg p-5 rounded-lg">
           <div className=" w-auto flex h-[60vh] justify-center mb-4 relative rounded-md p-2">
