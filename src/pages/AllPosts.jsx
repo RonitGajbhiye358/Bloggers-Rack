@@ -40,7 +40,7 @@ function AllPosts() {
       <Container>
         <div className="flex flex-wrap">
           {posts.map((post) => (
-            <div className="p-2 w-full  md:w-1/2 m-auto">
+            <div className="p-4 w-full  md:w-2/4 m-auto">
               <BlurFade key={post.$id} delay={0.25} inView>
                 <PostCard {...post} />
               </BlurFade>

@@ -35,13 +35,6 @@ function Home() {
     });
   }, [dispatch]);
 
-  if (!user) {
-    return (
-      <div className="w-full text-center">
-        <LandingPage />
-      </div>
-    );
-  }
   if (posts.length === 0) {
     return (
       <div className="w-full text-center">

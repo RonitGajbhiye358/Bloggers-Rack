@@ -16,8 +16,8 @@ const LandingPage = () => {
 
   return (
     <section className="relative text-black">
-      <section1 className=" pointer-events-none pt-44 md:pt-32 relative h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] font-Poppins">
-        <h1 className=" typing_animation font-bold text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
+      <section1 className=" pointer-events-none pt-44 md:pt-32 relative h-[75vh] sm:h-[90vh] md:h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] font-Poppins">
+        <h1 className=" typing_animation font-bold text-black text-3xl  md:text-6xl mt-0 md:mt-10 pb-4">
           Craft Your Digital Presence
         </h1>
         <h2 className="text-black text-xl md:text-3xl pb-4">
@@ -33,8 +33,18 @@ const LandingPage = () => {
             Create Your Blog
           </Link>
         </div>
+
+
+        
+          <img
+            src="/design.png"
+            className="visible md:invisible mx-auto absolute bottom-0 "
+          ></img>
+        
+
+
         <div
-          className={`transition-opacity duration-6000 ease-in-out ${
+          className={`transition-opacity duration-6000 ease-in-out invisible md:visible ${
             activeSlide === 1 ? "opacity-100" : "opacity-0"
           } inset-0`}
         >
@@ -78,7 +88,7 @@ const LandingPage = () => {
         </div>
 
         <div
-          className={`transition-opacity duration-6000 ease-in-out ${
+          className={`transition-opacity duration-6000 ease-in-out invisible md:visible ${
             activeSlide === 2 ? "opacity-100" : "opacity-0"
           }  inset-0`}
         >
@@ -128,19 +138,19 @@ const LandingPage = () => {
       </section1>
 
       <div className="h-40% bg-[linear-gradient(110deg,_#ADABF5_0%,_rgba(255,255,255,0)_99%)] z-0 flex flex-col md:flex-row items-center justify-evenly box-shadow-md overflow-clip pt-10 md:py-0">
-        <div>
-          <h1 className="text-3xl md:text-6xl font-bold mb-4">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
             {" "}
             Choose the perfect design
           </h1>
-          <h2 className="text-xl md:text-3xl font-light mb-6 max-w-xl">
+          <h2 className="text-xl md:text-2xl font-light mb-6 max-w-2xl">
             Create a beautiful blog that fits your style. Choose from a
             selection of easy-to-use templates – all with flexible layouts and
             hundreds of background images – or design something new.
           </h2>
         </div>
         <BlurFade delay={0.25} inView>
-          <div className="relative w-[500px] h-[400px] md:w-[600px] md:h-[600px]">
+          <div className="relative w-[500px] h-[400px] md:w-[600px] md:h-[600px] text-pretty">
             <im
               src="/AM2.1.png"
               className={`w-0 md:w-96 absolute top-10 left-0 z-2  `}
@@ -163,15 +173,18 @@ const LandingPage = () => {
       <div className="h-40% z-0 flex flex-col md:flex-row items-center justify-evenly  box-shadow-md overflow-clip py-10 md:py-0">
         <BlurFade delay={0.25} inView>
           <div className="relative w-[300px] md:w-[600px]">
-            <img src="/Content1.png" className={`my-10 md:my-20 rounded-2xl `} />
+            <img
+              src="/Content1.png"
+              className={`my-10 md:my-20 rounded-2xl `}
+            />
           </div>
         </BlurFade>
-        <div>
-          <h1 className="text-3xl md:text-6xl mb-4 text-black font-bold">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-3xl md:text-5xl mb-4 text-black font-bold">
             {" "}
             Choose the perfect design
           </h1>
-          <h2 className="text-xl md:text-3xl font-light mb-6 max-w-xl text-black">
+          <h2 className="text-xl md:text-2xl font-light mb-6 max-w-xl text-black">
             Create a beautiful blog that fits your style. Choose from a
             selection of easy-to-use templates – all with flexible layouts and
             hundreds of background images – or design something new.
@@ -180,8 +193,8 @@ const LandingPage = () => {
       </div>
 
       <BlurFade delay={0.15} inView>
-        <section className="pt-10 md:pt-24 pb-96 bg-gradient-to-r from-[#ABF5F1] to-transparent list-item relative">
-          <h1 className=" typing_animation text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
+        <section className="pt-10 md:pt-14 pb-96 bg-gradient-to-r from-[#ABF5F1] to-transparent list-item relative">
+          <h1 className=" typing_animation text-black text-wrap text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
             Craft Your Perfect Family Adventure
           </h1>
           <h2 className=" text-xl md:text-3xl pb-4">

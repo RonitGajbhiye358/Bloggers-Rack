@@ -26,6 +26,7 @@ export class Service {
           Image,
           Status: status,
           UserID: userId,
+          stars: [] // Initialize as an empty array
         }
       );
     } catch (error) {
@@ -33,23 +34,21 @@ export class Service {
     }
   }
 
-  async updatePost(slug, { title, content, Image, status }) {
+  async updatePost(slug, updates) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
-        {
-          Title: title,
-          Content: content,
-          Image,
-          Status: status,
-        }
+        updates
       );
     } catch (error) {
-      console.log("Appwrite serive :: updatePost :: error", error);
+      console.log("Appwrite service :: updatePost :: error", error);
     }
   }
+  
+  
+  
 
   async deletePost(slug) {
     try {
@@ -78,6 +77,34 @@ export class Service {
     }
   }
 
+  async incrementStarCount(postId, newStarCount, userId) {
+    try {
+      const post = await this.databases.updateDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        postId,
+        {
+          stars: newStarCount,
+          ratedByUsers: this.databases.createDocument(
+            conf.appwriteDatabaseId,
+            conf.appwriteCollectionId,
+            postId,
+            {
+              $add: {
+                ratedByUsers: userId, // Add the current user ID to the list
+              },
+            }
+          ),
+        }
+      );
+      return post;
+    } catch (error) {
+      console.error('Error updating star count:', error);
+      return null;
+    }
+  }
+
+
   async getPosts() {
     try {
 
@@ -91,6 +118,8 @@ export class Service {
       return false;
     }
   }
+
+  
 
   // file upload service
 
