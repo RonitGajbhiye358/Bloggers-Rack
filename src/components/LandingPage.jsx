@@ -15,12 +15,12 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <section className="relative text-black">
-      <section1 className="pt-44 md:pt-32 relative h-[80vh] sm:h-[90vh] md:h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] bg-cover font-Poppins">
-        <h1 className="typing_animation font-bold text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
+    <section className="relative text-black min-h-screen">
+      <section1 className="pt-44 md:pt-32 relative h-[95vh] md:h-[120vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] bg-cover font-Poppins">
+        <h1 className="typing_animation font-bold text-black text-xl md:text-6xl mt-0 md:mt-10 pb-4">
           Craft Your Digital Presence
         </h1>
-        <h2 className="text-black text-xl md:text-3xl pb-4">
+        <h2 className="text-black text-base text-wrap md:text-3xl pb-4">
           Create a unique and beautiful blog easily.
         </h2>
         <div>
@@ -47,12 +47,12 @@ const LandingPage = () => {
           <div className={`parallax1`}>
             <img
               src="/AM5.1.png"
-              className="w-80 left-[-60px] animate-moveUp"
+              className="w-80 left-[-60px] bottom-[254px] animate-moveUp"
               id="AM5.1"
             ></img>
             <img
               src="/AM5.2.png"
-              className="w-40 bottom-[-50px] left-4 animate-moveUp"
+              className="w-40 bottom-[-50px] left-4  animate-moveUp"
               id="AM5.2"
             ></img>
             <img
@@ -62,7 +62,7 @@ const LandingPage = () => {
             ></img>
             <img
               src="/AM5.4.png"
-              className="w-60 right-[-50px] animate-moveUp"
+              className="w-60 right-[-50px] bottom-[254px] animate-moveUp"
               id="AM5.4"
             ></img>
             <img
@@ -88,10 +88,10 @@ const LandingPage = () => {
             activeSlide === 2 ? "opacity-100" : "opacity-0"
           }  inset-0`}
         >
-          <div className="parallax1">
+          <div className="parallax1 red">
             <img
               src="/AM1.1.png"
-              className="w-80 right-[-60px] animate-moveUp"
+              className="w-80 right-[-60px] bottom-[254px] animate-moveUp"
               id="AM5.1"
             ></img>
             <img

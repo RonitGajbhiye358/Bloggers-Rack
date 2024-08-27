@@ -28,9 +28,9 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center w-full h-screen justify-center pt-8 bg-[url('/background-picture.jpeg')] bg-cover">
+    <div className="flex items-center w-full justify-center h-full pt-40 bg-[url('/background-picture.jpeg')] bg-cover">
       <div
-        className={`mx-auto w-auto md:w-full  max-w-lg  bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg rounded-xl p-10 border border-black/10`}
+        className={`mx-auto w-auto md:w-full  max-w-lg  bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg rounded-xl p-10 mb-10 border border-black/10`}
       >
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
