@@ -16,8 +16,8 @@ const LandingPage = () => {
 
   return (
     <section className="relative text-black">
-      <section1 className=" pointer-events-none pt-44 md:pt-32 relative h-[75vh] sm:h-[90vh] md:h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] font-Poppins">
-        <h1 className=" typing_animation font-bold text-black text-3xl  md:text-6xl mt-0 md:mt-10 pb-4">
+      <section1 className="pt-44 md:pt-32 relative h-[75vh] sm:h-[90vh] md:h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] font-Poppins">
+        <h1 className="typing_animation font-bold text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
           Craft Your Digital Presence
         </h1>
         <h2 className="text-black text-xl md:text-3xl pb-4">
@@ -27,21 +27,17 @@ const LandingPage = () => {
           <Link
             to="/login"
             title=""
-            className="relative inline-flex items-center justify-center w-auto px-12 py-4 my-2 text-base md:text-lg font-mono text-white bg-black border border-transparent rounded-full animate-pulse"
+            className="cursor-pointer relative z-100 inline-flex items-center justify-center w-auto px-12 py-4 my-2 text-base md:text-lg font-mono text-white bg-black border border-transparent rounded-full animate-pulse"
             role="button"
           >
             Create Your Blog
           </Link>
         </div>
 
-
-        
-          <img
-            src="/design.png"
-            className="visible md:invisible mx-auto absolute bottom-0 "
-          ></img>
-        
-
+        <img
+          src="/design.png"
+          className="visible md:invisible mx-auto absolute bottom-0 "
+        ></img>
 
         <div
           className={`transition-opacity duration-6000 ease-in-out invisible md:visible ${

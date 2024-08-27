@@ -25,7 +25,6 @@ body {
 }
 .parallax1 img {
   position: absolute;
-  pointer-events: none;
 }
 
 .typing_animation {
