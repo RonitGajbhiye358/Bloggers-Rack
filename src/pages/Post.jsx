@@ -67,7 +67,7 @@ export default function Post() {
   };
 
   return post ? (
-    <div className="pt-36 md:pt-28 pb-8 bg-[url('/background-picture.jpeg')]">
+    <div className="pt-36 md:pt-28 pb-8 bg-[url('/background-picture.jpeg')] bg-cover">
       <Container>
         <div className=" p-5 rounded-lg">
           <div className="w-auto flex h-[60vh] justify-center mb-4 relative rounded-md p-2">

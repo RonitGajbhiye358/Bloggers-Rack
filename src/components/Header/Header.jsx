@@ -77,7 +77,7 @@ function Header() {
                   className={` hover:text-pink-500 ${isScrolled ? "" : "hover:bg-slate-100"} cursor-pointer rounded-xl 
                 ${
                   location.pathname === item.slug
-                    ? "text-pink-500"
+                    ? "text-pink-500 bg-pink-500 md:bg-transparent"
                     : ""
                 }
                 
@@ -87,12 +87,13 @@ function Header() {
                     onClick={() => navigate(item.slug)}
                     title={`${item.name}`}
                     className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-lg
+                      
                       `}
                   >
                     <img
                       src={`/${item.name}.png`}
                       alt={item.name}
-                      className={`w-7 h-7 ${isScrolled ? 'invert' : ''}`}
+                      className={`w-7 h-7 ${isScrolled ? 'invert' : ''} `}
                     />
                     <div className="collapse md:visible w-0 md:w-auto text-[0px] md:text-lg ">
                       {item.name}

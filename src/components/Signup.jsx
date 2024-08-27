@@ -28,7 +28,7 @@ function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-transparent h-screen pt-8 bg-[url('/background-picture.jpeg')]">
+    <div className="flex items-center justify-center bg-transparent h-screen pt-16 bg-[url('/background-picture.jpeg')] bg-cover">
       <div
         className={`mx-auto w-auto md:w-full max-w-lg bg-white bg-opacity-15 backdrop-filter backdrop-blur-lg border  rounded-xl p-10 border-black/10`}
       >

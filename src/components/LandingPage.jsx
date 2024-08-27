@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <section className="relative text-black">
-      <section1 className="pt-44 md:pt-32 relative h-[75vh] sm:h-[90vh] md:h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] font-Poppins">
+      <section1 className="pt-44 md:pt-32 relative h-[80vh] sm:h-[90vh] md:h-[125vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] bg-cover font-Poppins">
         <h1 className="typing_animation font-bold text-black text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
           Craft Your Digital Presence
         </h1>

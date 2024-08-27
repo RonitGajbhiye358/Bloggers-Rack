@@ -20,7 +20,7 @@ function EditPost() {
         }
     }, [slug, navigate])
   return post ? (
-    <div className="pb-8 pt-40 md:pt-32 bg-[url('/background-picture.jpeg')]">
+    <div className="pb-8 pt-40 md:pt-32 bg-[url('/background-picture.jpeg')] bg-cover">
         <Container>
             <PostForm post={post} />
         </Container>

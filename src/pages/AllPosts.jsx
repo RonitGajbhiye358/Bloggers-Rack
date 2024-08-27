@@ -36,7 +36,7 @@ function AllPosts() {
 
   
   return (
-    <div className="w-full flex  pt-32 md:pt-40 pb-8 bg-[url('/background-picture.jpeg')]">
+    <div className="w-full flex  pt-40 md:pt-32 pb-8 bg-[url('/background-picture.jpeg')] bg-cover">
       <Container>
         <div className="flex flex-wrap">
           {posts.map((post) => (
