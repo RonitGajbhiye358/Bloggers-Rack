@@ -15,7 +15,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <section className="relative text-black min-h-screen">
+    <section className="relative text-black">
       <section1 className="pt-44 md:pt-32 relative h-[95vh] md:h-[120vh] list-item overflow-hidden bg-[url('/background-picture.jpeg')] bg-cover font-Poppins">
         <h1 className="typing_animation font-bold text-black text-xl md:text-6xl mt-0 md:mt-10 pb-4">
           Craft Your Digital Presence
@@ -281,7 +281,7 @@ const LandingPage = () => {
         </div>
       </BlurFade>
 
-      <div className="h-[50%] relative flex flex-col justify-center items-center py-10 md:pt-0">
+      <div className="h-screen md:h-[50%] relative flex flex-col justify-center items-center py-10 md:pt-0">
         <img
           src="/map.png"
           className="w-full h-full object-cover"
