@@ -176,16 +176,38 @@ const LandingPage = () => {
           </div>
         </BlurFade>
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl md:text-5xl mb-4 text-black font-bold">
-            {" "}
-            Choose the perfect design
+          <h1 className="text-3xl md:text-5xl text-wrap mb-4 text-black font-bold">
+            Text Editor for Blogging
           </h1>
           <h2 className="text-xl md:text-2xl font-light mb-6 max-w-xl text-black">
-            Create a beautiful blog that fits your style. Choose from a
-            selection of easy-to-use templates – all with flexible layouts and
-            hundreds of background images – or design something new.
+            Our blogging platform features an intuitive text editor that
+            simplifies content creation with rich formatting options, multimedia
+            integration, and real-time previews. Bloggers can effortlessly craft
+            engaging posts with tools like spell check, auto-save, and
+            collaborative editing.
           </h2>
         </div>
+      </div>
+
+      <div className="h-40% z-0 flex flex-col md:flex-row items-center justify-evenly bg-[linear-gradient(110deg,_rgba(255,255,255,0)_0%,_#FEB2FF_99%)]  box-shadow-md overflow-clip py-10 md:py-0">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-3xl md:text-5xl text-wrap mb-4 text-black font-bold">
+            Private Content Handling
+          </h1>
+          <h2 className="text-xl md:text-2xl font-light mb-6 max-w-xl text-black">
+            Bloggers Rack is its ability to manage content privacy. Users can
+            choose to make their posts public, share them only with friends, or
+            keep them private.
+          </h2>
+        </div>
+        <BlurFade delay={0.25} inView>
+          <div className="relative w-[300px] md:w-[500px]">
+            <img
+              src="/PrivatePostContent.jpeg"
+              className={`my-10 md:my-20 rounded-2xl `}
+            />
+          </div>
+        </BlurFade>
       </div>
 
       <BlurFade delay={0.15} inView>
