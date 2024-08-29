@@ -73,7 +73,7 @@ function Header() {
               <Logo width="70px" />
             </Link>
           </div>
-          <ul className="flex md:ml-auto items-center gap-8">
+          <ul className="flex md:ml-auto items-center gap-1 sm:gap-2 lg:gap-8">
             {navItems.map((item) =>
               item.active ? (
                 <li

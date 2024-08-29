@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import appwriteService from '../appwrite/config'; // Adjust the import path as needed
-import { Button, Container } from '../components'; // Ensure these components exist or replace with your own
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import appwriteService from "../appwrite/config"; // Adjust the import path as needed
+import { Button, Container } from "../components"; // Ensure these components exist or replace with your own
 
 const FriendRequests = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
@@ -11,10 +11,12 @@ const FriendRequests = () => {
     const fetchPendingRequests = async () => {
       if (userData) {
         try {
-          const response = await appwriteService.getPendingFriendRequests(userData.$id);
+          const response = await appwriteService.getPendingFriendRequests(
+            userData.$id
+          );
           setPendingRequests(response.documents); // Access 'documents' from the response
         } catch (error) {
-          console.error('Error fetching pending friend requests:', error);
+          console.error("Error fetching pending friend requests:", error);
         }
       }
     };
@@ -29,12 +31,12 @@ const FriendRequests = () => {
         prevRequests.filter((request) => request.$id !== requestId)
       );
     } catch (error) {
-      console.error('Error responding to friend request:', error);
+      console.error("Error responding to friend request:", error);
     }
   };
 
   return (
-    <div className="pt-36 md:pt-28 pb-8 bg-gray-100">
+    <div className="pb-20 pt-52 md:pt-32 bg-gray-100 bg-[url('/background-picture.jpeg')] bg-cover">
       <Container>
         <h1 className="text-2xl font-bold text-center mb-6">Friend Requests</h1>
         {pendingRequests.length === 0 ? (
@@ -50,13 +52,17 @@ const FriendRequests = () => {
                 <div className="flex space-x-2">
                   <Button
                     bgColor="bg-green-500"
-                    onClick={() => handleRespondToRequest(request.$id, 'accept')}
+                    onClick={() =>
+                      handleRespondToRequest(request.$id, "accept")
+                    }
                   >
                     Accept
                   </Button>
                   <Button
                     bgColor="bg-red-500"
-                    onClick={() => handleRespondToRequest(request.$id, 'reject')}
+                    onClick={() =>
+                      handleRespondToRequest(request.$id, "reject")
+                    }
                   >
                     Reject
                   </Button>

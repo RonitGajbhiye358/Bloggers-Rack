@@ -2,42 +2,73 @@ import React, { useEffect, useState } from "react";
 import appwriteService from "../appwrite/config";
 import { Container, PostCard } from "../components";
 import LandingPage from "../components/LandingPage";
-import BlurFade from "../components/UI/BlueFade";
 import authService from "../appwrite/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../store/authSlice";
+import BlurFade from "../components/UI/BlueFade";
 
 function Home() {
   const [posts, setPosts] = useState([]);
   const [showPosts, setShowPosts] = useState(false);
-  const [loading, setLoading] = useState(true); // New state to manage the loading state
+  const [loading, setLoading] = useState(true); // Loading state for posts fetching
+  const [authLoading, setAuthLoading] = useState(true); // Loading state for auth check
   const user = useSelector((state) => state.auth.user); // Get the current user from the redux store
   const dispatch = useDispatch();
 
+  
+
   useEffect(() => {
-    authService.getCurrentUser().then((userData) => {
-      if (userData) {
-        dispatch(login({ userData }));
-      } else {
-        dispatch(logout());
+    const checkAuth = async () => {
+      try {
+        const userData = await authService.getCurrentUser();
+        if (userData) {
+          dispatch(login({ userData }));
+        } else {
+          dispatch(logout());
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        setAuthLoading(false); // Stop auth loading
       }
-      setLoading(false); // Stop loading after checking user status
-    });
+    };
+
+    checkAuth();
   }, [dispatch]);
 
   useEffect(() => {
-    appwriteService.getPosts().then((posts) => {
-      if (posts) {
-        setPosts(posts.documents);
-        // Simulate a delay before showing posts
-        setTimeout(() => {
-          setShowPosts(true);
-        }, 200); // 0.2 seconds delay
+    const fetchPosts = async () => {
+      try {
+        const postsData = await appwriteService.getPosts();
+        if (postsData) {
+          setPosts(postsData.documents);
+          setShowPosts(true); // Show posts after fetching
+        }
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
+        setLoading(false); // Stop posts loading
       }
-    });
+    };
+
+    fetchPosts();
   }, []);
 
-  // Render nothing until the user authentication status is determined
+  // Render nothing until authentication status is checked
+  if (authLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[url('/background-picture.jpeg')] bg-cover">
+        <div className="text-center text-black">
+          <div className="loader animate-spin rounded-full h-28 w-28 border-t-4 border-b-4 border-black mx-auto"></div>
+          <h2 className="mt-8 text-2xl md:text-4xl font-semibold animate-pulse">
+            Loading...
+          </h2>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading spinner if posts are not yet ready to display
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-[url('/background-picture.jpeg')] bg-cover">
@@ -48,7 +79,7 @@ function Home() {
           </h2>
         </div>
       </div>
-    ); // Or a loading spinner if you prefer
+    );
   }
 
   // If no user is logged in and no posts are available, show the LandingPage
@@ -60,26 +91,12 @@ function Home() {
     );
   }
 
-  // Show loading spinner if posts are not yet ready to display
-  if (!showPosts) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-[url('/background-picture.jpeg')] bg-cover">
-        <div className="text-center text-black">
-          <div className="loader animate-spin rounded-full h-28 w-28 border-t-4 border-b-4 border-black mx-auto"></div>
-          <h2 className="mt-8 text-2xl md:text-4xl font-semibold animate-pulse">
-            Loading...
-          </h2>
-        </div>
-      </div>
-    );
-  }
-
   // Show posts if everything is ready
   return (
     <div className="w-full pb-8 pt-40 md:pt-32 bg-[url('/background-picture.jpeg')] bg-cover">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          {posts.map((post) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {showPosts && posts.map((post) => (
             <div key={post.$id} className="p-2">
               <BlurFade key={post.$id} delay={0.25} inView>
                 <PostCard {...post} />
