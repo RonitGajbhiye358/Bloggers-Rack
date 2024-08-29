@@ -1,5 +1,5 @@
 import conf from "../conf/conf.js";
-import {  Client, ID, Databases, Storage, Query } from "appwrite";
+import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 export class Service {
   client = new Client();
@@ -14,7 +14,15 @@ export class Service {
     this.bucket = new Storage(this.client);
   }
 
-  async createPost({ title, slug, content, Image, status, userId }) {
+  async createPost({
+    title,
+    slug,
+    content,
+    Image,
+    status,
+    userId,
+    allowedFriends,
+  }) {
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -24,13 +32,14 @@ export class Service {
           Title: title,
           Content: content,
           Image,
-          Status: status,
+          Status: status, // 'public', 'private', 'friends-only'
           UserID: userId,
-          stars: [] // Initialize as an empty array
+          AllowedFriends: allowedFriends || [], // List of friend IDs for 'friends-only'
+          stars: [],
         }
       );
     } catch (error) {
-      console.log("Appwrite serive :: createPost :: error", error);
+      console.error("Error creating post:", error);
     }
   }
 
@@ -46,9 +55,101 @@ export class Service {
       console.log("Appwrite service :: updatePost :: error", error);
     }
   }
-  
-  
-  
+
+  // Send Friend Request
+  async sendFriendRequest(senderId, receiverId) {
+    try {
+      return await this.databases.createDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteFriendRequestsCollectionId,
+        ID.unique(),
+        {
+          senderId,
+          receiverId,
+          status: "pending",
+          createdAt: new Date().toISOString(),
+        }
+      );
+    } catch (error) {
+      console.error("Error sending friend request:", error);
+    }
+  }
+
+  // Respond to Friend Request
+  // Service.js
+  async respondToFriendRequest(requestId, action) {
+    try {
+      const status = action === "accept" ? "accepted" : "rejected";
+      await this.databases.updateDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteFriendRequestsCollectionId,
+        requestId,
+        { status }
+      );
+
+      if (status === "accepted") {
+        const request = await this.databases.getDocument(
+          conf.appwriteDatabaseId,
+          conf.appwriteFriendRequestsCollectionId,
+          requestId
+        );
+
+        // Create bi-directional friendship
+        await this.databases.createDocument(
+          conf.appwriteDatabaseId,
+          conf.appwriteFriendsCollectionId,
+          ID.unique(),
+          { userId: request.senderId, friendId: request.receiverId }
+        );
+        await this.databases.createDocument(
+          conf.appwriteDatabaseId,
+          conf.appwriteFriendsCollectionId,
+          ID.unique(),
+          { userId: request.receiverId, friendId: request.senderId }
+        );
+      }
+    } catch (error) {
+      console.error("Error responding to friend request:", error);
+    }
+  }
+
+  // Get Pending Friend Requests
+  async getPendingFriendRequests(userId) {
+    try {
+      if (!userId) {
+        throw new Error("User ID is required");
+      }
+
+      const response = await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteFriendRequestsCollectionId,
+        [Query.equal("receiverId", userId), Query.equal("status", "pending")]
+      );
+
+      if (response && response.documents) {
+        return response;
+      } else {
+        throw new Error("No documents found or invalid response format");
+      }
+    } catch (error) {
+      console.error("Error fetching pending friend requests:", error);
+      throw error;
+    }
+  }
+
+  async getFriends(userId) {
+    try {
+      const response = await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteFriendsCollectionId, // Use the defined collection ID
+        [Query.equal('userId', userId)]
+      );
+      return response; // Ensure this response object has a 'documents' property
+    } catch (error) {
+      console.error('Error fetching friends:', error);
+      return { documents: [] }; // Return an empty array if there’s an error
+    }
+  }
 
   async deletePost(slug) {
     try {
@@ -69,7 +170,7 @@ export class Service {
       return await this.databases.getDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug,
+        slug
       );
     } catch (error) {
       console.log("Appwrite serive :: getPost :: error", error);
@@ -77,40 +178,41 @@ export class Service {
     }
   }
 
-  async incrementStarCount(postId, newStarCount, userId) {
+  async incrementStarCount(postId, userId) {
     try {
-      const post = await this.databases.updateDocument(
+      const post = await this.databases.getDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        postId
+      );
+
+      if (post.ratedByUsers.includes(userId)) {
+        console.log("User has already rated this post.");
+        return post;
+      }
+
+      const updatedStars = [...post.stars, userId];
+      const updatedPost = await this.databases.updateDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         postId,
         {
-          stars: newStarCount,
-          ratedByUsers: this.databases.createDocument(
-            conf.appwriteDatabaseId,
-            conf.appwriteCollectionId,
-            postId,
-            {
-              $add: {
-                ratedByUsers: userId, // Add the current user ID to the list
-              },
-            }
-          ),
+          stars: updatedStars,
+          ratedByUsers: [...post.ratedByUsers, userId],
         }
       );
-      return post;
+      return updatedPost;
     } catch (error) {
-      console.error('Error updating star count:', error);
+      console.error("Error updating star count:", error);
       return null;
     }
   }
 
-
   async getPosts() {
     try {
-
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
-        conf.appwriteCollectionId,
+        conf.appwriteCollectionId
         // queries
       );
     } catch (error) {
@@ -118,8 +220,6 @@ export class Service {
       return false;
     }
   }
-
-  
 
   // file upload service
 
@@ -147,10 +247,7 @@ export class Service {
   }
 
   getFilePreview(fileId) {
-    return this.bucket.getFilePreview(
-      conf.appwriteBucketId,
-      fileId,
-    );
+    return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
   }
 }
 

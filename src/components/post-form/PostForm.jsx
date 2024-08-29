@@ -125,7 +125,7 @@ export default function PostForm({ post }) {
           </div>
         )}
         <Select
-          options={["Public", "Private"]}
+          options={["Public", "Private","Friends Only"]}
           label="Status"
           className="my-6"
           {...register("status", { required: true })}

@@ -7,6 +7,8 @@ import store from './store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import { AuthLayout, Login } from './components/index.js'
+import FriendRequests from "./pages/FriendRequests";
+
 
 
 import AddPost from "./pages/AddPost";
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
                     <EditPost />
                 </AuthLayout>
             ),
+        },
+        {
+            path:"/friend-requests",
+            element:<FriendRequests />,
         },
         {
             path: "/post/:slug",

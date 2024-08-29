@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Logo, LogoutBtn } from "../index";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,6 +36,11 @@ function Header() {
       slug: "/add-post",
       active: authStatus,
     },
+    {
+      name: "Friend Requests",
+      slug: "/friend-requests",
+      active: authStatus,
+    },
   ];
 
   useEffect(() => {
@@ -59,43 +63,38 @@ function Header() {
   return (
     <header
       className={`w-full py-2 bg-[rgb(11,20,47)] bg-opacity-85 fixed top-0 z-30 duration-100 ease-out ${
-        isScrolled ? "bg-rgb(40,29,69) bg-opacity-80 text-white " : "bg-transparent text-black"
+        isScrolled ? "bg-rgb(40,29,69) bg-opacity-80 text-white" : "bg-transparent text-black"
       }`}
     >
       <Container>
         <nav className="flex flex-col items-center md:flex-row">
-          <div className=" md:mr-4">
+          <div className="md:mr-4">
             <Link to="/">
               <Logo width="70px" />
             </Link>
           </div>
-          <ul className="flex md:ml-auto items-center gap-8 ">
+          <ul className="flex md:ml-auto items-center gap-8">
             {navItems.map((item) =>
               item.active ? (
                 <li
                   key={item.name}
-                  className={` hover:text-pink-500 ${isScrolled ? "" : "hover:bg-slate-100"} cursor-pointer rounded-xl 
-                ${
-                  location.pathname === item.slug
-                    ? "text-pink-500 bg-pink-500 md:bg-transparent"
-                    : ""
-                }
-                
-                `}
+                  className={`hover:text-pink-500 ${isScrolled ? "" : "hover:bg-slate-100"} cursor-pointer rounded-xl ${
+                    location.pathname === item.slug
+                      ? "text-pink-500 bg-pink-500 md:bg-transparent"
+                      : ""
+                  }`}
                 >
                   <button
                     onClick={() => navigate(item.slug)}
-                    title={`${item.name}`}
-                    className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-lg
-                      
-                      `}
+                    title={item.name}
+                    className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-lg`}
                   >
                     <img
                       src={`/${item.name}.png`}
                       alt={item.name}
-                      className={`w-7 h-7 ${isScrolled ? 'invert' : ''} `}
+                      className={`w-7 h-7 ${isScrolled ? "invert" : ""}`}
                     />
-                    <div className="collapse md:visible w-0 md:w-auto text-[0px] md:text-lg ">
+                    <div className="collapse md:visible w-0 md:w-auto text-[0px] md:text-lg">
                       {item.name}
                     </div>
                   </button>

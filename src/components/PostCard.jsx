@@ -6,15 +6,35 @@ import { useSelector } from "react-redux";
 
 function PostCard({ $id, Title, Image, $updatedAt, stars = [], ...post }) {
   const userData = useSelector((state) => state.auth.userData);
-
-  const handleClick = (e) => {
-    alert("You cannot access the Private Content of other users!");
-  };
+  const [isFriend, setIsFriend] = React.useState(false);
 
   const date = new Date($updatedAt);
   const formattedDateTime = format(date, "dd-MM-yyyy HH:mm a");
 
-  if (userData.$id !== post.UserID && post.Status === "Private") {
+  React.useEffect(() => {
+    const checkFriendship = async () => {
+      if (userData.$id && post.UserID) {
+        try {
+          const response = await appwriteService.getFriends(userData.$id);
+          const friends = response.documents || []; // Handle undefined documents
+          setIsFriend(friends.some(friend => friend.friendId === post.UserID));
+        } catch (error) {
+          console.error("Error checking friendship:", error);
+          setIsFriend(false); // Default to false if there’s an error
+        }
+      }
+    };
+    checkFriendship();
+  }, [userData.$id, post.UserID]);
+
+  const handleClick = (e) => {
+    if (post.Status === "Private" || (post.Status === "Friends Only" && !isFriend)) {
+      e.preventDefault();
+      alert("You cannot access the content of this post.");
+    }
+  };
+
+  if (post.Status === "Private" && userData.$id !== post.UserID) {
     return (
       <Link
         to={`/`}
@@ -34,6 +54,31 @@ function PostCard({ $id, Title, Image, $updatedAt, stars = [], ...post }) {
         </div>
         <div className="p-4 bg-gray-800 text-center text-white">
           <p>Not accessible...</p>
+        </div>
+      </Link>
+    );
+  }
+
+  if (post.Status === "Friends Only" && !isFriend && userData.$id !== post.UserID) {
+    return (
+      <Link
+        to={`/`}
+        onClick={handleClick}
+        className="block rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105"
+      >
+        <div className="relative">
+          <img
+            src="friendsOnlyPost.png"
+            loading="lazy"
+            alt={Title}
+            className="w-full h-64 object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+            <h2 className="text-white text-3xl font-semibold">Friends Only Post</h2>
+          </div>
+        </div>
+        <div className="p-4 bg-gray-800 text-center text-white">
+          <p>Only accessible to friends...</p>
         </div>
       </Link>
     );
