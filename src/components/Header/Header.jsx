@@ -87,7 +87,7 @@ function Header() {
                   <button
                     onClick={() => navigate(item.slug)}
                     title={item.name}
-                    className={`flex justify-center items-center gap-0 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-lg`}
+                    className={`flex justify-center items-center gap-1 md:gap-4 p-3 md:px-4 md:py-2 duration-200 text-lg`}
                   >
                     <img
                       src={`/${item.name}.png`}

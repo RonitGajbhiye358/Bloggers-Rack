@@ -210,8 +210,34 @@ const LandingPage = () => {
         </BlurFade>
       </div>
 
+      <div className="h-40% z-10 flex flex-col md:flex-row items-center justify-evenly shadow-md overflow-hidden py-10 md:py-0">
+        <div className="relative  ">
+          <BlurFade delay={0.25} inView>
+            <iframe
+              className="w-[300px] lg:w-[600px] h-72 md:h-96 my-12 mx-12 rounded-lg shadow-ld "
+              src="https://www.youtube.com/embed/tr5xi27U5K8"
+              allowFullScreen
+            ></iframe>
+          </BlurFade>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-3xl md:text-5xl mb-4 text-black font-bold">
+            Live YouTube Video
+          </h1>
+          <h2 className="text-md md:text-xl font-light mb-6 max-w-xl text-black">
+            GitHub Links -{" "}
+            <a
+              href="https://github.com/RonitGajbhiye358/Bloggers-Rack"
+              className="text-blue-500 no-underline"
+            >
+              Bloggers Rack's Source Code
+            </a>
+          </h2>
+        </div>
+      </div>
+
       <BlurFade delay={0.15} inView>
-        <section className="pt-10 md:pt-14 pb-96 bg-gradient-to-r from-[#ABF5F1] to-transparent list-item relative">
+        <section className="pt-10 md:pt-14 pb-96 bg-gradient-to-r from-[#ABF5F1] to-transparent list-item z-0 relative">
           <h1 className=" typing_animation text-black text-wrap text-3xl md:text-6xl mt-0 md:mt-10 pb-4">
             Craft Your Perfect Family Adventure
           </h1>
