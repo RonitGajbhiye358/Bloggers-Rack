@@ -7,7 +7,7 @@ const conf = {
   rteapi:"7wvp6wqz7fek7yej0t2u7xxen9t782grp47mth9278m5rq0n",
   appwriteFriendRequestsCollectionId:"66d00057000b18f801a7",
   appwriteFriendsCollectionId:"66d004e60001950d3e01"
-}
+}   
 // there was a name issue with the import.meta.env.VITE_APPWRITE_URL, it was later fixed in debugging video
 
 export default conf
